@@ -1,43 +1,51 @@
-<div class="container" style="padding-right: 10%; padding-left: 10%;">
-    
-    <h1>Add Admin User</h1>
+<div>
 
-        
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <h1>Add Admin User</h1>
 
-    <form name="form" ng-submit="addUser()" role="form">
-    
-        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" class="form-control" ng-model="email" required placeholder="E-mail" />
-            <p ng-show="form.email.$error.email" class="help-block">E-mail is invalid.</p>
+
+                <form name="form" ng-submit="addUser()" role="form">
+
+                    <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" class="form-control" ng-model="email" required
+                               placeholder="E-mail"/>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" ng-model="username"
+                               required placeholder="Username"/>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" ng-model="password"
+                               required placeholder="Password"/>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error': form.repassword.$dirty && form.repassword.$error.required }">
+                        <label for="repassword">Re-Enter Password</label>
+                        <input type="password" name="rePassword" id="rePassword" class="form-control"
+                               ng-model="repassword" required placeholder="ReEnter Password"/>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <span ng-disabled="form.$invalid || vm.dataLoading" ng-click="addUser()"
+                              class="btn btn-default">Add
+                        </span>
+
+                        <a href="#!/home" class="btn btn-link">
+                            Cancel</a>
+                    </div>
+
+
+                </form>
+            </section>
+
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="form-control" ng-model="username" required placeholder="Username" ng-minlength="5" ng-maxlength="16"/>
-            <p ng-show="form.username.$error.minlength" class="help-block">Username is too short.</p>
-            <p ng-show="form.username.$error.maxlength" class="help-block">Username is too long.</p>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" ng-model="password" required placeholder="Password" ng-minlength="8" ng-maxlength="16"/>
-            <p ng-show="form.password.$error.minlength" class="help-block">Password is too short.</p>
-            <p ng-show="form.password.$error.maxlength" class="help-block">Password is too long.</p>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.repassword.$dirty && form.repassword.$error.required }">
-            <label for="repassword">Re-Enter Password</label>
-            <input type="password" name="rePassword" id="rePassword" class="form-control" ng-model="repassword" required  placeholder="ReEnter Password" match-password="password"/>
-            <p ng-show="form.repassword.$error.passwordMatch" class="help-block">Your passwords did not match</p>
-        </div>
-        
-        
-        <div class="form-actions">
-            <button type="button" ng-disabled="form.$invalid || vm.dataLoading" ng-click = "addUser()" class="btn btn-black">Add</button>
-            
-            <a href="#!/home" class="btn btn-link">
-            <button ui-sref="home" class="btn btn-black">Cancel</button>
-        </div>
-        
-        
-    </form>
-    
-</div>
+    </div>
+
